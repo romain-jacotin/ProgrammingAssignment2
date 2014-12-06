@@ -33,11 +33,13 @@ makeCacheMatrix <- function(x = matrix()) {
     ## store the result of the inverse matrix of 'x
     s <- NULL
 
-    ## Create a set() function so the user could change later the 'x' matrix
-    ## If we change the initial
+    ## Create a set() function so the user could change later the 'x' matrix.
+    ## When changing the initial matrix, we also need to clear the variable 's'
+    ## that will store the new inverse of the matrix when cacheSolve() function
+    ## be called
     set <- function(y) {
         x <<- y
-        m <<- NULL
+        s <<- NULL
     }
     
     ## Create a get() function that is used by cacheSolve() function to get the
